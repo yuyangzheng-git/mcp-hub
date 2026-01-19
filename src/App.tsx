@@ -16,6 +16,21 @@ import {
   Check,
   Terminal,
   FileCode,
+  Globe,
+  Brain,
+  MessageSquare,
+  Mail,
+  Cpu,
+  Box,
+  Book,
+  Code,
+  Image,
+  Music,
+  AlertCircle,
+  Cloud,
+  BarChart,
+  Share2,
+  Package,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -56,6 +71,21 @@ const iconMap: Record<string, React.ReactNode> = {
   Database: <Database className="h-5 w-5" />,
   Folder: <Folder className="h-5 w-5" />,
   Server: <ServerIcon className="h-5 w-5" />,
+  Globe: <Globe className="h-5 w-5" />,
+  Brain: <Brain className="h-5 w-5" />,
+  MessageSquare: <MessageSquare className="h-5 w-5" />,
+  Mail: <Mail className="h-5 w-5" />,
+  Cpu: <Cpu className="h-5 w-5" />,
+  Box: <Box className="h-5 w-5" />,
+  Book: <Book className="h-5 w-5" />,
+  Code: <Code className="h-5 w-5" />,
+  Image: <Image className="h-5 w-5" />,
+  Music: <Music className="h-5 w-5" />,
+  AlertCircle: <AlertCircle className="h-5 w-5" />,
+  Cloud: <Cloud className="h-5 w-5" />,
+  BarChart: <BarChart className="h-5 w-5" />,
+  Share2: <Share2 className="h-5 w-5" />,
+  Package: <Package className="h-5 w-5" />,
 }
 
 interface MCPServer extends MCPServerTemplate {
@@ -64,20 +94,94 @@ interface MCPServer extends MCPServerTemplate {
   enabled: boolean
 }
 
-const serversWithMeta: MCPServer[] = mcpServers.map((server) => ({
-  ...server,
-  author: server.id === "google-maps" ? "Google" :
-          server.id === "github" ? "ModelContextProtocol" :
-          server.id === "sqlite" ? "ModelContextProtocol" :
-          server.id === "filesystem" ? "ModelContextProtocol" :
-          "ModelContextProtocol",
-  stars: server.id === "google-maps" ? 1200 :
-          server.id === "github" ? 3500 :
-          server.id === "sqlite" ? 890 :
-          server.id === "filesystem" ? 2100 :
-          1500,
-  enabled: false,
-}))
+const serversWithMeta: MCPServer[] = mcpServers.map((server) => {
+  const authorMap: Record<string, string> = {
+    "google-maps": "Google",
+    "github": "ModelContextProtocol",
+    "sqlite": "ModelContextProtocol",
+    "filesystem": "ModelContextProtocol",
+    "postgres": "ModelContextProtocol",
+    "brave-search": "ModelContextProtocol",
+    "puppeteer": "ModelContextProtocol",
+    "memory": "ModelContextProtocol",
+    "everything": "ModelContextProtocol",
+    "mysql": "ModelContextProtocol",
+    "mongodb": "ModelContextProtocol",
+    "redis": "ModelContextProtocol",
+    "slack": "ModelContextProtocol",
+    "google": "ModelContextProtocol",
+    "fetch": "ModelContextProtocol",
+    "openapi": "ModelContextProtocol",
+    "kubernetes": "ModelContextProtocol",
+    "docker": "ModelContextProtocol",
+    "notion": "ModelContextProtocol",
+    "context7": "Context7",
+    "windsurf": "Windsurf",
+    "sequential-thinking": "ModelContextProtocol",
+    "giphy": "ModelContextProtocol",
+    "spotify": "ModelContextProtocol",
+    "sentry": "ModelContextProtocol",
+    "aws": "ModelContextProtocol",
+    "web-search": "ModelContextProtocol",
+    "exa": "Exa",
+    "neon": "Neon",
+    "supabase": "Supabase",
+    "snowflake": "ModelContextProtocol",
+    "grafana": "Grafana",
+    "graphviz": "ModelContextProtocol",
+    "shell": "ModelContextProtocol",
+    "registry": "ModelContextProtocol",
+    "obsidian": "ModelContextProtocol",
+    "evernote": "ModelContextProtocol",
+  }
+
+  const starsMap: Record<string, number> = {
+    "google-maps": 1200,
+    "github": 3500,
+    "sqlite": 890,
+    "filesystem": 2100,
+    "postgres": 1500,
+    "brave-search": 680,
+    "puppeteer": 3200,
+    "memory": 450,
+    "everything": 520,
+    "mysql": 780,
+    "mongodb": 920,
+    "redis": 650,
+    "slack": 1100,
+    "google": 1800,
+    "fetch": 340,
+    "openapi": 280,
+    "kubernetes": 450,
+    "docker": 1200,
+    "notion": 560,
+    "context7": 380,
+    "windsurf": 420,
+    "sequential-thinking": 290,
+    "giphy": 180,
+    "spotify": 620,
+    "sentry": 380,
+    "aws": 520,
+    "web-search": 260,
+    "exa": 340,
+    "neon": 480,
+    "supabase": 890,
+    "snowflake": 220,
+    "grafana": 350,
+    "graphviz": 180,
+    "shell": 400,
+    "registry": 150,
+    "obsidian": 280,
+    "evernote": 160,
+  }
+
+  return {
+    ...server,
+    author: authorMap[server.id] || "Community",
+    stars: starsMap[server.id] || 100,
+    enabled: false,
+  }
+})
 
 function generateBashScript(servers: MCPServer[]): string {
   const serversJson = JSON.stringify(
