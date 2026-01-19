@@ -371,6 +371,16 @@ export const mcpServers: MCPServerTemplate[] = [
     tags: ["evernote", "notes", "productivity"],
     icon: "Book",
   },
+  {
+    id: "dify",
+    name: "Dify",
+    description: "Integrate with Dify AI platform for LLM applications, workflows, and knowledge bases",
+    command: "npx",
+    args: ["-y", "@langchain-ai/mcp-dify"],
+    category: "ai",
+    tags: ["dify", "ai", "llm", "workflows", "knowledge-base"],
+    icon: "Sparkles",
+  },
 ]
 
 export const categories = [

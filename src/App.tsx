@@ -31,6 +31,7 @@ import {
   BarChart,
   Share2,
   Package,
+  Sparkles,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -86,6 +87,7 @@ const iconMap: Record<string, React.ReactNode> = {
   BarChart: <BarChart className="h-5 w-5" />,
   Share2: <Share2 className="h-5 w-5" />,
   Package: <Package className="h-5 w-5" />,
+  Sparkles: <Sparkles className="h-5 w-5" />,
 }
 
 interface MCPServer extends MCPServerTemplate {
@@ -133,6 +135,7 @@ const serversWithMeta: MCPServer[] = mcpServers.map((server) => {
     "registry": "ModelContextProtocol",
     "obsidian": "ModelContextProtocol",
     "evernote": "ModelContextProtocol",
+    "dify": "LangChain",
   }
 
   const starsMap: Record<string, number> = {
@@ -173,6 +176,7 @@ const serversWithMeta: MCPServer[] = mcpServers.map((server) => {
     "registry": 150,
     "obsidian": 280,
     "evernote": 160,
+    "dify": 420,
   }
 
   return {
