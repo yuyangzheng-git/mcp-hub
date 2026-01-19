@@ -1,0 +1,66 @@
+import type { MCPServerTemplate } from "@/types/mcp"
+
+export const mcpServers: MCPServerTemplate[] = [
+  {
+    id: "google-maps",
+    name: "Google Maps",
+    description: "Interact with Google Maps API for location services, directions, and place information",
+    command: "npx",
+    args: ["-y", "@modelcontextprotocol/server-google-maps"],
+    category: "api",
+    tags: ["maps", "location", "travel"],
+    icon: "Map",
+  },
+  {
+    id: "github",
+    name: "GitHub",
+    description: "Interact with GitHub repositories, issues, pull requests, and workflows",
+    command: "npx",
+    args: ["-y", "@modelcontextprotocol/server-github"],
+    category: "development",
+    tags: ["github", "git", "repository"],
+    icon: "Github",
+  },
+  {
+    id: "sqlite",
+    name: "SQLite",
+    description: "Query and interact with SQLite databases",
+    command: "uvx",
+    args: ["mcp-server-sqlite", "--db-path", "/path/to/database.db"],
+    category: "database",
+    tags: ["sqlite", "database", "sql"],
+    icon: "Database",
+  },
+  {
+    id: "filesystem",
+    name: "Filesystem",
+    description: "Read, write, and manage files on your local filesystem",
+    command: "npx",
+    args: ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/directory"],
+    category: "filesystem",
+    tags: ["filesystem", "files", "storage"],
+    icon: "Folder",
+  },
+  {
+    id: "postgres",
+    name: "PostgreSQL",
+    description: "Connect and query PostgreSQL databases with full SQL support",
+    command: "npx",
+    args: ["-y", "@modelcontextprotocol/server-postgres", "postgresql://user:password@localhost:5432/database"],
+    category: "database",
+    tags: ["postgres", "postgresql", "database", "sql"],
+    icon: "Server",
+  },
+]
+
+export const categories = [
+  { value: "all", label: "All Servers" },
+  { value: "database", label: "Database" },
+  { value: "filesystem", label: "Filesystem" },
+  { value: "api", label: "API" },
+  { value: "development", label: "Development" },
+  { value: "ai", label: "AI" },
+  { value: "communication", label: "Communication" },
+  { value: "utilities", label: "Utilities" },
+  { value: "other", label: "Other" },
+]
