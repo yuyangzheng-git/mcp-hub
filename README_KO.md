@@ -1,4 +1,4 @@
-# MCP Hub
+# 🚀 MCP Hub - 세계에서 가장 완전한 MCP 서버 컬렉션
 
 <div align="center">
 
@@ -9,9 +9,13 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4-38bdf8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](https://opensource.org/licenses/MIT)
 
-**Claude Desktop용 MCP 서버 관리자의 결정판**
+**🚀 Ultimate MCP 서버 관리자 - 100개 이상의 MCP 서버 발견·구성·배포**
 
-[English](README.md) | [中文](README_CN.md) | [日本語](README_JA.md) | 한국어 | [Español](README_ES.md) | [Français](README_FR.md)
+🎯 **클릭 한 번으로 claude_desktop_config.json 생성**
+
+🌐 **웹사이트**: **[https://wild-hall-5c56.qazplm20031208zj.workers.dev](https://wild-hall-5c56.qazplm20031208zj.workers.dev)**
+
+[English](README.md) | [中文](README_CN.md) | [日本語](README_JA.md) | [한국어](README_KO.md) | [Español](README_ES.md) | [Français](README_FR.md) | [Português](README_PT.md) | [Deutsch](README_DE.md) | [Русский](README_RU.md) | [العربية](README_AR.md) | [Italiano](README_IT.md) | [Nederlands](README_NL.md)
 
 </div>
 

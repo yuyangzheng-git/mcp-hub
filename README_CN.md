@@ -13,7 +13,7 @@
 
 🎯 **一键生成 claude_desktop_config.json**
 
-🌐 **官网**: **[https://mcp-hub.dev](https://mcp-hub.dev)**
+🌐 **官网**: **[https://wild-hall-5c56.qazplm20031208zj.workers.dev](https://wild-hall-5c56.qazplm20031208zj.workers.dev)**
 
 [English](README.md) | [中文](README_CN.md) | [日本語](README_JA.md) | [한국어](README_KO.md) | [Español](README_ES.md) | [Français](README_FR.md) | [Português](README_PT.md) | [Deutsch](README_DE.md) | [Русский](README_RU.md) | [العربية](README_AR.md) | [Italiano](README_IT.md) | [Nederlands](README_NL.md)
 
