@@ -1,4 +1,4 @@
-# MCP Hub
+# MCP Hub---One-click import of all MCPs
 
 <div align="center">
 
