@@ -8,6 +8,7 @@ export interface MCPServer {
   icon?: string
   category: MCPCategory
   tags: string[]
+  website?: string
   isEnabled: boolean
 }
 
@@ -41,4 +42,5 @@ export interface MCPServerTemplate {
   env?: Record<string, string>
   tags: string[]
   icon?: string
+  website?: string
 }

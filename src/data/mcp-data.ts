@@ -10,6 +10,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "api",
     tags: ["maps", "location", "travel"],
     icon: "Map",
+    website: "https://developers.google.com/maps",
   },
   {
     id: "github",
@@ -20,6 +21,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "development",
     tags: ["github", "git", "repository"],
     icon: "Github",
+    website: "https://github.com",
   },
   {
     id: "sqlite",
@@ -50,6 +52,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "database",
     tags: ["postgres", "postgresql", "database", "sql"],
     icon: "Server",
+    website: "https://www.postgresql.org",
   },
   {
     id: "brave-search",
@@ -390,6 +393,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "utilities",
     tags: ["cloudflare", "workers", "deployment", "cloud"],
     icon: "Cloud",
+    website: "https://cloudflare.com",
   },
   {
     id: "azure",
@@ -450,6 +454,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "api",
     tags: ["search", "web", "brave", "browser"],
     icon: "Globe",
+    website: "https://search.brave.com",
   },
   {
     id: "gitlab",
@@ -500,6 +505,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "ai",
     tags: ["huggingface", "ml", "models", "datasets"],
     icon: "Brain",
+    website: "https://huggingface.co",
   },
   {
     id: "openai",
@@ -510,6 +516,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "ai",
     tags: ["openai", "gpt", "ai", "language-models"],
     icon: "Brain",
+    website: "https://openai.com",
   },
   {
     id: "anthropic",
@@ -520,6 +527,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "ai",
     tags: ["anthropic", "claude", "ai", "language-models"],
     icon: "Brain",
+    website: "https://anthropic.com",
   },
   {
     id: "perplexity",
@@ -620,6 +628,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "communication",
     tags: ["slack", "chat", "messaging", "workspace"],
     icon: "MessageSquare",
+    website: "https://slack.com",
   },
   {
     id: "telegram",
@@ -660,6 +669,7 @@ export const mcpServers: MCPServerTemplate[] = [
     category: "utilities",
     tags: ["notion", "productivity", "workspace", "database"],
     icon: "Book",
+    website: "https://notion.so",
   },
   {
     id: "todoist",

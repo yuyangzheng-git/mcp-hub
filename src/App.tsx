@@ -32,6 +32,7 @@ import {
   Share2,
   Package,
   Sparkles,
+  Link,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -633,6 +634,17 @@ function App() {
                     <p className="text-sm text-muted-foreground line-clamp-2">
                       {server.description}
                     </p>
+                    {server.website && (
+                      <a
+                        href={server.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-2"
+                      >
+                        <Link className="h-3 w-3" />
+                        {server.website.replace(/^https?:\/\//, '')}
+                      </a>
+                    )}
                   </CardContent>
                   <CardFooter className="flex items-center justify-between pt-3">
                     <div className="flex flex-wrap gap-1">
