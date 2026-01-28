@@ -44,3 +44,28 @@ export interface MCPServerTemplate {
   icon?: string
   website?: string
 }
+
+export interface ClaudeCodeSkill {
+  id: string
+  name: string
+  description: string
+  category: SkillCategory
+  command: string
+  args: string[]
+  env?: Record<string, string>
+  tags: string[]
+  icon?: string
+  website?: string
+  author: string
+  stars: number
+}
+
+export type SkillCategory =
+  | "development"
+  | "file-operations"
+  | "api-integration"
+  | "database"
+  | "ai-ml"
+  | "devops"
+  | "testing"
+  | "other"

@@ -65,6 +65,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { mcpServers, categories } from "@/data/mcp-data"
+import { claudeCodeSkills, skillCategories } from "@/data/claude-code-skills"
 import type { MCPServerTemplate } from "@/types/mcp"
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -89,6 +90,16 @@ const iconMap: Record<string, React.ReactNode> = {
   Share2: <Share2 className="h-5 w-5" />,
   Package: <Package className="h-5 w-5" />,
   Sparkles: <Sparkles className="h-5 w-5" />,
+  FileText: <FileCode className="h-5 w-5" />,
+  FileEdit: <FileCode className="h-5 w-5" />,
+  GitBranch: <Github className="h-5 w-5" />,
+  Docker: <Box className="h-5 w-5" />,
+  CheckCircle: <Check className="h-5 w-5" />,
+  Shield: <AlertCircle className="h-5 w-5" />,
+  Table: <BarChart className="h-5 w-5" />,
+  Braces: <Code className="h-5 w-5" />,
+  Key: <Terminal className="h-5 w-5" />,
+  Bug: <AlertCircle className="h-5 w-5" />,
 }
 
 interface MCPServer extends MCPServerTemplate {
@@ -561,6 +572,7 @@ function App() {
         <Tabs defaultValue="servers" className="space-y-6">
           <TabsList>
             <TabsTrigger value="servers">MCP Servers</TabsTrigger>
+            <TabsTrigger value="skills">Claude Code Skills</TabsTrigger>
             <TabsTrigger value="install">Install Scripts</TabsTrigger>
             <TabsTrigger value="help">How to Use</TabsTrigger>
           </TabsList>
@@ -666,6 +678,116 @@ function App() {
             {filteredServers.length === 0 && (
               <div className="text-center py-12">
                 <p className="text-muted-foreground">No servers found</p>
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="skills" className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <h2 className="text-2xl font-bold">Claude Code Skills</h2>
+                <p className="text-muted-foreground">
+                  Browse and discover skills for Claude Code CLI
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search skills..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-9"
+                />
+              </div>
+              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                <SelectTrigger className="w-full sm:w-[180px]">
+                  <SelectValue placeholder="Category" />
+                </SelectTrigger>
+                <SelectContent>
+                  {skillCategories.map((cat) => (
+                    <SelectItem key={cat.value} value={cat.value}>
+                      {cat.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+              {claudeCodeSkills
+                .filter((skill) => {
+                  const matchesSearch =
+                    skill.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    skill.description.toLowerCase().includes(searchQuery.toLowerCase())
+                  const matchesCategory =
+                    selectedCategory === "all" || skill.category === selectedCategory
+                  return matchesSearch && matchesCategory
+                })
+                .map((skill) => (
+                  <Card key={skill.id} className="group transition-all hover:shadow-lg">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            {skill.icon && iconMap[skill.icon]}
+                          </div>
+                          <div>
+                            <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                              {skill.name}
+                            </CardTitle>
+                            <CardDescription className="text-xs text-muted-foreground">
+                              by {skill.author}
+                            </CardDescription>
+                          </div>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pb-3">
+                      <p className="text-sm text-muted-foreground line-clamp-2">
+                        {skill.description}
+                      </p>
+                      {skill.website && (
+                        <a
+                          href={skill.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-2"
+                        >
+                          <Link className="h-3 w-3" />
+                          {skill.website.replace(/^https?:\/\//, '')}
+                        </a>
+                      )}
+                    </CardContent>
+                    <CardFooter className="flex items-center justify-between pt-3">
+                      <div className="flex flex-wrap gap-1">
+                        {skill.tags.slice(0, 3).map((tag) => (
+                          <Badge key={tag} variant="secondary" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                        <Star className="h-3.5 w-3.5" />
+                        <span>{skill.stars.toLocaleString()}</span>
+                      </div>
+                    </CardFooter>
+                  </Card>
+                ))}
+            </div>
+
+            {claudeCodeSkills.filter((skill) => {
+              const matchesSearch =
+                skill.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                skill.description.toLowerCase().includes(searchQuery.toLowerCase())
+              const matchesCategory =
+                selectedCategory === "all" || skill.category === selectedCategory
+              return matchesSearch && matchesCategory
+            }).length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">No skills found</p>
               </div>
             )}
           </TabsContent>
